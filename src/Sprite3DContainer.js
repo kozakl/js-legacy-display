@@ -79,4 +79,4 @@ Sprite3DContainer.prototype.updateTransform = function()
         this.children[i].updateTransform();
 };
 
-Sprite3DContainer.prototype.sprite3dUpdateTransform = Sprite3DContainer.prototype.updateTransform;
+Sprite3DContainer.prototype.sprite3dContainerUpdateTransform = Sprite3DContainer.prototype.updateTransform;
