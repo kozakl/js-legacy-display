@@ -11,11 +11,11 @@ function Container3D()
     this.rotation         = new Point3D(0, 0, 0);
     this.position         = new Point3D(0, 0, 0);
     //protected private
-    this.rotationCache    = new Point3D(Infinity, Infinity, Infinity);
-    this.mat4             = mat4.create();
-    this.scaleVec         = vec3.create();
-    this.rotationQuat     = quat.create();
-    this.positionVec      = vec3.create();
+    this.rotationCache = new Point3D(Infinity, Infinity, Infinity);
+    this.mat4          = mat4.create();
+    this.scaleVec      = vec3.create();
+    this.rotationQuat  = quat.create();
+    this.positionVec   = vec3.create();
 }
 
 Container3D.prototype = Object.create(PIXI.Container.prototype);
@@ -44,16 +44,16 @@ Container3D.prototype.updateTransform = function()
         this._cz = Math.cos(this.rotation.z * 0.5);
         this._sz = Math.sin(this.rotation.z * 0.5);
     }
-    this.scaleVec[0]     = this.scale.x;
-    this.scaleVec[1]     = this.scale.y;
-    this.scaleVec[2]     = this.scale.z;
+    this.scaleVec[0] = this.scale.x;
+    this.scaleVec[1] = this.scale.y;
+    this.scaleVec[2] = this.scale.z;
     this.rotationQuat[0] = this._sx * this._cy * this._cz + this._cx * this._sy * this._sz;
     this.rotationQuat[1] = this._cx * this._sy * this._cz - this._sx * this._cy * this._sz;
     this.rotationQuat[2] = this._cx * this._cy * this._sz + this._sx * this._sy * this._cz;
     this.rotationQuat[3] = this._cx * this._cy * this._cz - this._sx * this._sy * this._sz;
-    this.positionVec[0]  = this.position.x;
-    this.positionVec[1]  = this.position.y;
-    this.positionVec[2]  = this.position.z;
+    this.positionVec[0] = this.position.x;
+    this.positionVec[1] = this.position.y;
+    this.positionVec[2] = this.position.z;
     
     MatrixUtil.fromRotationTranslationScale(
         this.worldTransform3d,
