@@ -41,21 +41,18 @@ function Sprite3DRenderer(renderer)
 
     this.shader = null;
     
-    this.perspectiveMatrix = identity(1.5);
     this.projection3d = mat4.create();
     this.combinedMatrix = mat4.create();
-    
-    function identity(t) {
-        return [1, 0, 0, 0,
-                0, 1, 0, 0,
-                0, 0, 1, t,
-                0, 0, 0, 1]
-    }
 }
 
 Sprite3DRenderer.prototype = Object.create(PIXI.ObjectRenderer.prototype);
 Sprite3DRenderer.prototype.constructor = Sprite3DRenderer;
 PIXI.WebGLRenderer.registerPlugin('sprite3d', Sprite3DRenderer);
+
+Sprite3DRenderer.init = function(perspective)
+{
+    Sprite3DRenderer.perspectiveMatrix = perspective;
+};
 
 Sprite3DRenderer.prototype.onContextChange = function()
 {
@@ -215,7 +212,7 @@ Sprite3DRenderer.prototype.flush = function()
     this.projection3d[12] = projectionMatrix.tx;
     this.projection3d[13] = projectionMatrix.ty;
     
-    this.combinedMatrix = mat4.multiply(this.combinedMatrix, this.perspectiveMatrix, this.projection3d);
+    this.combinedMatrix = mat4.multiply(this.combinedMatrix, Sprite3DRenderer.perspectiveMatrix, this.projection3d);
     
     for (var i = 0, j = this.currentBatchSize; i < j; i++)
     {
