@@ -5,5 +5,8 @@
     "name": "Luke Kozak",
     "email": "kozakluke@gmail.com",
     "url": "https://github.com/kozakl"
+  },
+  "scripts": {
+    "build": "rm -rf dist/ && mkdir dist/ && cp package.json dist/ && cp -R src/* dist/"
   }
 }
