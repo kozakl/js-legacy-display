@@ -7,7 +7,7 @@
     "url": "https://github.com/kozakl"
   },
   "scripts": {
-    "prebuild": "rm -rf dist/",
-    "build": "mkdir -p dist/display/ && cp package.json dist/display/ && cp -R src/* dist/display/"
+    "prebuild": "rm -rf dist/ && mkdir -p dist/display/",
+    "build": "cp package.json dist/display/ && cp -R src/* dist/display/"
   }
 }
