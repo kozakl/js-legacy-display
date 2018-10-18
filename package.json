@@ -1,0 +1,13 @@
+{
+  "name": "js-legacy-display",
+  "version": "1.0.1",
+  "author": {
+    "name": "Luke Kozak",
+    "email": "kozakluke@gmail.com",
+    "url": "https://github.com/kozakl"
+  },
+  "scripts": {
+    "prebuild": "rm -rf dist/ && mkdir -p dist/display/",
+    "build": "cp package.json dist/display/ && cp -R src/* dist/display/"
+  }
+}
