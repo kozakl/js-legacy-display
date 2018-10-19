@@ -7,8 +7,9 @@
     "url": "https://github.com/kozakl"
   },
   "scripts": {
-    "prebuild": "rm -rf dist/ && mkdir -p dist/display/",
-    "build": "cp package.json dist/display/ && cp -R src/* dist/display/"
+    "prebuild": "rm -rf dist/ && mkdir dist/",
+    "build": "cp package.json dist/ && cp -R src/* dist/",
+    "publish-dist": "yarn build && npm publish ./dist --access=public"
   },
   "dependencies": {
     "@kozakl/legacy-utils": "^1.0.1"
