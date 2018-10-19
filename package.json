@@ -1,6 +1,6 @@
 {
-  "name": "js-legacy-display",
-  "version": "1.0.1",
+  "name": "@kozakl/legacy-display",
+  "version": "1.0.2",
   "author": {
     "name": "Luke Kozak",
     "email": "kozakluke@gmail.com",
@@ -9,5 +9,8 @@
   "scripts": {
     "prebuild": "rm -rf dist/ && mkdir -p dist/display/",
     "build": "cp package.json dist/display/ && cp -R src/* dist/display/"
+  },
+  "dependencies": {
+    "@kozakl/legacy-utils": "^1.0.1"
   }
 }
