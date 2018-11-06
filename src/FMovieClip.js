@@ -20,6 +20,14 @@ function FMovieClip(textures)
 FMovieClip.prototype = Object.create(PIXI.Sprite.prototype);
 FMovieClip.prototype.constructor = FMovieClip;
 
+Object.defineProperties(FMovieClip3D.prototype, {
+    currentFrame: {
+        get: function() {
+            return (this.time | 0) % this.textures.length;
+        }
+    }
+});
+
 FMovieClip.prototype.play = function()
 {
     this.playing = true;
