@@ -20,7 +20,7 @@ function FMovieClip(textures)
 FMovieClip.prototype = Object.create(PIXI.Sprite.prototype);
 FMovieClip.prototype.constructor = FMovieClip;
 
-Object.defineProperties(FMovieClip3D.prototype, {
+Object.defineProperties(FMovieClip.prototype, {
     currentFrame: {
         get: function() {
             return (this.time | 0) % this.textures.length;
