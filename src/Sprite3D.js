@@ -10,7 +10,7 @@ function Sprite3D(texture)
     this.scale            = new Point3D(1, 1, 1);
     this.rotation         = new Point3D(0, 0, 0);
     this.position         = new Point3D(0, 0, 0);
-    //protected private
+    //private
     this.rotationCache = new Point3D(Infinity, Infinity, Infinity);
     this.mat4          = mat4.create();
     this.scaleVec      = vec3.create();

@@ -10,14 +10,23 @@ function FMovieClip(textures)
     //public
     this.motionSpeed = 1;
     this.loop        = true;
+    this.stopFrame   = null;
     this.complete    = null;
-    //protected private
+    //private
     this.playing = false;
     this.time    = 0;
 }
 
 FMovieClip.prototype = Object.create(PIXI.Sprite.prototype);
 FMovieClip.prototype.constructor = FMovieClip;
+
+Object.defineProperties(FMovieClip.prototype, {
+    currentFrame: {
+        get: function() {
+            return (this.time | 0) % this.textures.length;
+        }
+    }
+});
 
 FMovieClip.prototype.play = function()
 {
@@ -48,9 +57,9 @@ FMovieClip.prototype.updateTransform = function()
     if (this.playing)
     {
         const time = this.time | 0,
-              n = this.textures.length;
+              n = this.stopFrame || this.textures.length;
         if (this.loop || time <= n)
-            this._texture = this.textures[time % n];
+            this._texture = this.textures[time % this.textures.length];
         else if (time >= n) {
             let complete = this.complete;
             this.complete = null;
