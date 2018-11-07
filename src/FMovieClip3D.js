@@ -12,7 +12,7 @@ function FMovieClip3D(textures)
     this.loop        = true;
     this.stopFrame   = null;
     this.complete    = null;
-    //protected private
+    //private
     this.playing = false;
     this.time    = 0;
 }
