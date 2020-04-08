@@ -58,13 +58,17 @@ FMovieClip.prototype.updateTransform = function()
     {
         const time = this.time | 0,
               n = this.stopFrame || this.textures.length;
-        if (this.loop || time <= n)
+        if (this.loop || time <= n) {
             this._texture = this.textures[time % this.textures.length];
-        else if (time >= n) {
+        } else if (time >= n) {
             let complete = this.complete;
             this.complete = null;
-            if (complete)
+            if (this.stopFrame) {
+                this._texture = this.textures[this.stopFrame % this.textures.length];
+            }
+            if (complete) {
                 complete();
+            }
             complete = null;
         }
     }
